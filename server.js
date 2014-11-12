@@ -9,7 +9,9 @@ var db = require('./config/db');
 var port = process.env.PORT;
 var host = process.env.IP;
 
-//mongoose.connect("db.url")
+mongoose.connect("mongodb://" + host +"/" + port);
+
+var Student = require('./app/models/student');
 
 app.use(bodyParser.json());
 
