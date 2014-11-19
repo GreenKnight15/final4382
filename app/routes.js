@@ -5,12 +5,13 @@ var crypto = require("crypto");
 
 
 module.exports = function(app){
- ///Authintication   
+ ///Authentication   
     
     var users = require("../public/js/controllers/user_controller");
     
-    app.use('./static', express.static('./stati')).
-        use('/lib',express.static('../lib'));
+    app.use('./public', express.static('./public')).
+      //  use('/lib',express.static('../lib')).
+        use('/images',express.static('../public'));
         
     app.get('/',function(req,res){
         if(req.session.user){
@@ -56,6 +57,22 @@ module.exports = function(app){
     app.post('/login', users.login); 
     app.get('/user/profile',users.getUserProfile);
 ///// end of authintication
+
+//Comment Thread
+
+var photos = require("../public/js/controllers/photoCtrl");
+var pages = require("../public/js/controllers/pagesCtrl");
+var comments = require("../public/js/controllers/commentsCtrl");
+
+app.get('/photos',photos.getPhotos);
+app.get('/photo', photos.getPhoto);
+app.get('/page',pages.getPage);
+app.get('/comments/get',comments.getComment);
+app.get('/comments/add',comments.addComment);
+//End of comment thread
+
+
+
 
 //     app.get('/api/students',function(req,res){
 //         Student.find(function(err,student){

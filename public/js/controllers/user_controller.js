@@ -89,7 +89,7 @@ exports.deleteUser = function(req,res){
                 });
             });
         } else {
-            req.session.msg = "USer Not Found";
+            req.session.msg = "User Not Found";
             req.session.destroy(function(){
                 res.redirect('/login');
             });

@@ -5,7 +5,8 @@ var UserSchema = new Schema({
     username:{type: String, unique: true},
     email:String,
     color:String,
-    hashed_password:String
+    hashed_password:String,
+    profilePic: String
 });
 
 mongoose.model('User',UserSchema);

@@ -5,8 +5,8 @@
         <link rel="stylesheet" href="/public/css/styles.css" type="text/css" />
     </head>
     <body>
-        <div class="form-container" nq-controller="myController">
-            <pclass='form-header'>User Profile</p>
+        <div class="form-container" ng-controller="myController">
+            <p class='form-header'>User Profile</p>
             <form method='POST' action='/user/update'>
                 <label>Username:</label> 
                     <input type='text' name='username' ng-model='user.username' disabled> <br>
@@ -14,15 +14,18 @@
                     <input type='email' name='email' ng-model='user.email'> <br>
                 <label>Favorite Color:</label> 
                     <input type='text' name='color' ng-model='user.color'> <br>
+                <label>Picture URL:</label> 
+                    <input type='text' name='pic' ng-model='user.profilePic'> <br>
                 <input type="submit" value="Save" >
             </form>
-            </div>
+           
             <form method='POST' action='/user/delete'>
                 <input type="submit" value="Delete User"/>
             </form>
-            <hr><% msg %>
+            <hr><%= msg %>
             <hr>{{error}}
-        <script type="text/javascript" src="/libs/angular/angular.min.js"></script>
-        <script type="text/javascript" src="/public/js/my_app.js"></script>
+        </div>
+         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script type="text/javascript" src="../public/js/my_app.js"></script>
     </body>
 </html>
